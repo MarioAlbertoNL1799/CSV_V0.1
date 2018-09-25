@@ -4,7 +4,13 @@
  * and open the template in the editor.
  */
 package models;
-
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 /**
  *
  * @author manl_
@@ -34,7 +40,43 @@ public class ModelCSV {
         return path;
     }
 
-    public void setPath(String path) {
+    private void setPath(String path) {
         this.path = path;
+    }
+public void readFile(){
+    try{
+        String row;
+        try(FileReader file = new FileReader(path)){
+            BufferedReader bufferedReader = new BufferedReader(file);
+            while ((row = bufferedReader.readLine()) != null){
+                System.out.println(row);
+            }
+            bufferedReader.close();
+        }
+    }
+    catch(FileNotFoundException err){
+        System.err.println("Archivo no encontrado: "+err.getMessage());
+        }
+    catch(IOException err){
+        System.err.println("Errior en la operacion de entrada/salida: "+err.getMessage());
+        }
+    }
+
+public void writeFile(){
+        try{
+            File file = new File(path);
+            FileWriter fileWriter = new FileWriter(file,true);//al tomar en el controlador todo el texto sobreescribimos el archivo y asi no habra repeticion de palabras
+            String agregar = "\n"+ nombre + ',' + email;
+            try (PrintWriter printWriter = new PrintWriter(fileWriter)){
+                printWriter.println(agregar);
+                printWriter.close();
+            }
+        }
+        catch(FileNotFoundException err){
+            System.err.println("Archivo no encontrado: "+err.getMessage());
+        }
+        catch(IOException err){
+            System.err.println("Errior en la operacion de entrada/salida: "+err.getMessage());
+        }
     }
 }
