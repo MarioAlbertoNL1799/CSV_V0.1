@@ -27,7 +27,6 @@ public class ControllerCSV {
         }
     };   
     public void jb_nuevo_actionPerformed(){
-        modelCSV.readFile();
         viewCSV.jtf_nombre.setText(null);
         modelCSV.setNombre(null);
         viewCSV.jtf_email.setText(null);
