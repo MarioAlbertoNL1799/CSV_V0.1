@@ -9,12 +9,12 @@ import views.ViewCSV;
 import controllers.ControllerCSV;
 
 /**
- *
+ *Clase que permite la interaccion de la vista, procesos e interacciones de la aplicacion
  * @author manl_
  */
 public class MAIN {
 
-    /**
+    /**metodo que permite el uso de la aplicacion
      * @param args the command line arguments
      */
     public static void main(String[] args) {

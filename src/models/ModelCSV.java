@@ -11,8 +11,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 /**
- * Clase que permite realizar las acciones para ingresar datos a  
+ * Clase que permite realizar las acciones de la aplicacion
  * @author manl_
  */
 public class ModelCSV {
@@ -43,6 +44,9 @@ public class ModelCSV {
     private void setPath(String path) {
         this.path = path;
     }
+    /**
+     * metodo que permite leer un archivo y su contenido
+     */
 public void readFile(){
     try{
         String row;
@@ -61,18 +65,20 @@ public void readFile(){
         System.err.println("Errior en la operacion de entrada/salida: "+err.getMessage());
         }
     }
-
+/**
+ * metodo que permite ingresar un nuevo dato al archivo
+ */
 public void writeFile(){
         try{
             File file = new File(path);
-            FileWriter fileWriter = new FileWriter(file,true);//al tomar en el controlador todo el texto sobreescribimos el archivo y asi no habra repeticion de palabras
+            FileWriter fileWriter = new FileWriter(file,true);
             prueba();
             prueba2();
             String agregar = nombre + ',' + email;
             try (PrintWriter printWriter = new PrintWriter(fileWriter)){
                 printWriter.println(agregar);
                 printWriter.close();
-            }
+                }
         }
         catch(FileNotFoundException err){
             System.err.println("Archivo no encontrado: "+err.getMessage());
@@ -81,6 +87,9 @@ public void writeFile(){
             System.err.println("Errior en la operacion de entrada/salida: "+err.getMessage());
         }
     }
+/**
+ * metodo que hace validacion de los caracteres igresados en el nombre y sustituye las comas por un espacio
+ */
 public void prueba(){
     char cadena [];
     cadena = nombre.toCharArray();
@@ -91,6 +100,9 @@ public void prueba(){
     nombre = String.valueOf(cadena);
     System.out.println(nombre);
 }
+/**
+ * metodo que hace validacion de los caracteres del email y sustituye las comas por un guion bajo
+ */
 public void prueba2(){
     char[] probar;
     probar = email.toCharArray();
