@@ -12,7 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 /**
- *
+ * Clase que permite realizar las acciones para ingresar datos a  
  * @author manl_
  */
 public class ModelCSV {
@@ -66,7 +66,9 @@ public void writeFile(){
         try{
             File file = new File(path);
             FileWriter fileWriter = new FileWriter(file,true);//al tomar en el controlador todo el texto sobreescribimos el archivo y asi no habra repeticion de palabras
-            String agregar = "\n"+ nombre + ',' + email;
+            prueba();
+            prueba2();
+            String agregar = nombre + ',' + email;
             try (PrintWriter printWriter = new PrintWriter(fileWriter)){
                 printWriter.println(agregar);
                 printWriter.close();
@@ -79,4 +81,24 @@ public void writeFile(){
             System.err.println("Errior en la operacion de entrada/salida: "+err.getMessage());
         }
     }
+public void prueba(){
+    char cadena [];
+    cadena = nombre.toCharArray();
+    for (int i= 0; i < nombre.length(); i++){
+         if (cadena[i] == ',')
+             cadena[i] = ' ';
+    }
+    nombre = String.valueOf(cadena);
+    System.out.println(nombre);
+}
+public void prueba2(){
+    char[] probar;
+    probar = email.toCharArray();
+    for (int i= 0; i < email.length(); i++){
+         if (probar[i] == ',')
+             probar[i] = '_';
+    }
+    email = String.valueOf(probar);
+    System.out.println(email);
+}
 }
