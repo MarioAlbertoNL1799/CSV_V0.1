@@ -152,13 +152,13 @@ public class ViewCSV extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jb_guardar;
-    private javax.swing.JButton jb_niuevo;
+    public javax.swing.JButton jb_guardar;
+    public javax.swing.JButton jb_niuevo;
     private javax.swing.JLabel jl_csv;
-    private javax.swing.JLabel jl_email;
-    private javax.swing.JLabel jl_nombre;
+    public javax.swing.JLabel jl_email;
+    public javax.swing.JLabel jl_nombre;
     private javax.swing.JPanel jp_titulo;
-    private javax.swing.JTextField jtf_email;
-    private javax.swing.JTextField jtf_nombre;
+    public javax.swing.JTextField jtf_email;
+    public javax.swing.JTextField jtf_nombre;
     // End of variables declaration//GEN-END:variables
 }

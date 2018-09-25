@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package main;
+import models.ModelCSV;
+import views.ViewCSV;
+import controllers.ControllerCSV;
 
 /**
  *
@@ -15,7 +18,9 @@ public class MAIN {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        ModelCSV modelCSV = new ModelCSV();
+        ViewCSV viewCSV = new ViewCSV(); 
+        ControllerCSV controllercsv = new ControllerCSV(modelCSV, viewCSV);
     }
     
 }
